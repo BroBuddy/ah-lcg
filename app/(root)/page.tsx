@@ -14,6 +14,7 @@ import useScenarioStore from '@/store/scenarioStore'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import InvestigatorCard from '@/components/InvestigatorCard'
 
 const Home = () => {
     const { investigator } = useInvestigatorStore((state) => ({
@@ -66,48 +67,21 @@ const Home = () => {
                         </p>
                     </CardContent>
                 </Card>
+                {!investigator && (
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Investigator</CardTitle>
+                        </CardHeader>
 
-                <Card>
-                    <CardHeader>
-                        <CardTitle>Investigator</CardTitle>
-                        {investigator && (
-                            <CardDescription>
-                                {investigator.name}
-                            </CardDescription>
-                        )}
-                    </CardHeader>
+                        <CardContent>
+                            <p>No investigator activated yet.</p>
+                        </CardContent>
+                    </Card>
+                )}
 
-                    <CardContent>
-                        {!investigator && <p>No investigator activated yet.</p>}
-
-                        {investigator && (
-                            <div className="flex flex-row cursor-pointer">
-                                {investigator.cards.map((card, index) => {
-                                    return (
-                                        <FlipCard
-                                            key={index}
-                                            url={'investigators'}
-                                            name={investigator.name}
-                                            card={card}
-                                        />
-                                    )
-                                })}
-                            </div>
-                        )}
-                    </CardContent>
-
-                    {investigator && (
-                        <CardFooter className="gap-2">
-                            <Button asChild variant="outline">
-                                <Link
-                                    href={`/investigator/${investigator.url}`}
-                                >
-                                    Enter
-                                </Link>
-                            </Button>
-                        </CardFooter>
-                    )}
-                </Card>
+                {investigator && (
+                    <InvestigatorCard investigatorData={investigator} />
+                )}
 
                 <Card>
                     <CardHeader>

@@ -60,7 +60,7 @@ const ScenarioDetail = () => {
                     </TabsList>
 
                     <TabsContent value="scenario">
-                        <Card key={scenarioData.name}>
+                        <Card className="w-[500px]">
                             <CardHeader>
                                 <CardTitle>{scenarioData.name}</CardTitle>
                             </CardHeader>
