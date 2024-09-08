@@ -28,7 +28,7 @@ const ScenarioDetail = () => {
         })
     )
 
-    const scenarioData = findScenario(slug as string)
+    const scenarioData: Scenario = findScenario(slug as string)
 
     if (!scenarioData) {
         return (
@@ -64,18 +64,20 @@ const ScenarioDetail = () => {
 
                             <CardContent className="flex flex-row gap-4">
                                 {scenarioData.setup &&
-                                    scenarioData.setup.map((card) => {
-                                        return (
-                                            <Image
-                                                key={card}
-                                                src={`/scenarios/${scenarioData.url}/${card}`}
-                                                height={264}
-                                                width={191}
-                                                alt={scenarioData.name}
-                                                className="image-card"
-                                            />
-                                        )
-                                    })}
+                                    scenarioData.setup.map(
+                                        (card: string, index: number) => {
+                                            return (
+                                                <Image
+                                                    key={index}
+                                                    src={`/scenarios/${scenarioData.url}/${card}`}
+                                                    height={264}
+                                                    width={191}
+                                                    alt={scenarioData.name}
+                                                    className="image-card"
+                                                />
+                                            )
+                                        }
+                                    )}
                             </CardContent>
 
                             {scenario !== scenarioData && (
@@ -107,7 +109,7 @@ const ScenarioDetail = () => {
                                 {scenarioData.agenda && scenarioData.act && (
                                     <>
                                         {scenarioData.agenda.map(
-                                            (card, index) => {
+                                            (card: FlipCard, index: number) => {
                                                 return (
                                                     <FlipCard
                                                         key={index}
@@ -119,16 +121,18 @@ const ScenarioDetail = () => {
                                             }
                                         )}
 
-                                        {scenarioData.act.map((card, index) => {
-                                            return (
-                                                <FlipCard
-                                                    key={index}
-                                                    url={`scenarios/${scenarioData.url}`}
-                                                    name={scenarioData.name}
-                                                    card={card}
-                                                />
-                                            )
-                                        })}
+                                        {scenarioData.act.map(
+                                            (card: FlipCard, index: number) => {
+                                                return (
+                                                    <FlipCard
+                                                        key={index}
+                                                        url={`scenarios/${scenarioData.url}`}
+                                                        name={scenarioData.name}
+                                                        card={card}
+                                                    />
+                                                )
+                                            }
+                                        )}
                                     </>
                                 )}
                             </CardContent>

@@ -1,6 +1,6 @@
 import { TheGathering } from './encounterData'
 
-export const ScenarioData = [
+export const ScenarioData: Scenario[] = [
     {
         id: 1,
         name: 'The Gathering',

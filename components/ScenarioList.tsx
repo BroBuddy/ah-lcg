@@ -24,26 +24,28 @@ const ScenarioList = () => {
     return (
         <div className="flex flex-row flex-wrap gap-8">
             {scenarioDeck &&
-                scenarioDeck?.map((scenarioData) => {
+                scenarioDeck?.map((scenarioData: Scenario, index: number) => {
                     return (
-                        <Card key={scenarioData.name} className="w-[500px]">
+                        <Card key={index} className="w-[500px]">
                             <CardHeader>
                                 <CardTitle>{scenarioData.name}</CardTitle>
                             </CardHeader>
 
                             <CardContent className="flex flex-row gap-4">
-                                {scenarioData.setup.map((card) => {
-                                    return (
-                                        <Image
-                                            key={card}
-                                            src={`/scenarios/${scenarioData.url}/${card}`}
-                                            height={264}
-                                            width={191}
-                                            alt={scenarioData.name}
-                                            className="image-card"
-                                        />
-                                    )
-                                })}
+                                {scenarioData.setup.map(
+                                    (card: string, index: number) => {
+                                        return (
+                                            <Image
+                                                key={index}
+                                                src={`/scenarios/${scenarioData.url}/${card}`}
+                                                height={264}
+                                                width={191}
+                                                alt={scenarioData.name}
+                                                className="image-card"
+                                            />
+                                        )
+                                    }
+                                )}
                             </CardContent>
 
                             <CardFooter className="gap-2">

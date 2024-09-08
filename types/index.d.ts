@@ -4,12 +4,12 @@ declare type Investigator = {
     url: string
     class: 'Guardian' | 'Seeker' | 'Rogue' | 'Mystic' | 'Survivor'
     cards: FlipCard[]
-    cardDeck: DeckCard[]
     skills: number[]
     health: number
     sanity: number
     maxHealth: number
     maxSanity: number
+    cardDeck?: DeckCard[]
 }
 
 declare type Scenario = {
@@ -17,9 +17,9 @@ declare type Scenario = {
     name: string
     url: string
     setup: string[]
-    agenda: FlipCard[]
-    act: FlipCard[]
-    scenarioDeck: DeckCard[]
+    agenda?: FlipCard[]
+    act?: FlipCard[]
+    scenarioDeck?: DeckCard[]
 }
 
 declare type FlipCard = {
@@ -30,7 +30,7 @@ declare type FlipCard = {
 
 declare type DeckCard = {
     category: string
-    type: string
+    type: 'Asset' | 'Enemy' | 'Event' | 'Skill' | 'Treachery'
     url: string
     image: string
 }

@@ -6,6 +6,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
+type SideBarItem = {
+    imgURL: string
+    route: string
+    label: string
+}
 const Sidebar = () => {
     const pathname = usePathname()
 
@@ -27,15 +32,15 @@ const Sidebar = () => {
                     <h1 className="sidebar-logo">Arkham Horror</h1>
                 </Link>
 
-                {sidebarLinks.map((item) => {
+                {sidebarLinks.map((item: SideBarItem, index: number) => {
                     const isActive =
                         pathname === item.route ||
                         pathname.startsWith(`${item.route}/`)
 
                     return (
                         <Link
+                            key={index}
                             href={item.route}
-                            key={item.label}
                             className={cn('sidebar-link', {
                                 'bg-bank-gradient': isActive,
                             })}

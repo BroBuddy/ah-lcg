@@ -29,7 +29,7 @@ const InvestigatorDetail = () => {
             setInvestigator: state.setInvestigator,
         }))
 
-    const investigatorData = findInvestigator(slug as string)
+    const investigatorData: Investigator = findInvestigator(slug as string)
 
     if (!investigatorData) {
         return (

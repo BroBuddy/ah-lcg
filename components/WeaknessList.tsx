@@ -24,7 +24,7 @@ const WeaknessList = () => {
             </CardHeader>
 
             <CardContent className="flex flex-row flex-wrap flex-1 gap-4">
-                {weaknessDeck.map((card, index) => {
+                {weaknessDeck.map((card: DeckCard, index: number) => {
                     return (
                         <React.Fragment key={index}>
                             <Image

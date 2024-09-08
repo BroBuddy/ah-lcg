@@ -41,7 +41,7 @@ const CardDeck = (deck: { deck: DeckCard[] }) => {
                                         height={264}
                                         width={191}
                                         className="image-card"
-                                        alt="Player Card"
+                                        alt="Deck Card"
                                     />
                                 </React.Fragment>
                             )

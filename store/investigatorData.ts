@@ -1,6 +1,6 @@
 import { DaisyDeck, RolandDeck } from './cardData'
 
-export const InvestigatorData = [
+export const InvestigatorData: Investigator[] = [
     {
         id: 1,
         name: 'Roland Banks',
