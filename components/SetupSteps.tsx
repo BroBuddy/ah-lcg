@@ -38,7 +38,7 @@ const SetupSteps = () => {
     }
 
     const getRandomWeakness = () => {
-        const randomNumber = Math.floor(Math.random() * weaknessDeck.length) + 1
+        const randomNumber = Math.floor(Math.random() * weaknessDeck.length)
         const weaknessCard = [weaknessDeck[randomNumber]]
 
         addCardsIntoDeck(weaknessCard as DeckCard[])
