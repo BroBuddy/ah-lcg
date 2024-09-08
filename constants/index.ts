@@ -5,13 +5,13 @@ export const sidebarLinks = [
         label: 'Investigator',
     },
     {
+        imgURL: '/icons/transaction.svg',
+        route: '/deck',
+        label: 'Deck',
+    },
+    {
         imgURL: '/icons/dollar-circle.svg',
         route: '/scenario',
         label: 'Scenario',
-    },
-    {
-        imgURL: '/icons/transaction.svg',
-        route: '/card',
-        label: 'Card',
     },
 ]

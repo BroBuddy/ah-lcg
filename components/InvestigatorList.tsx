@@ -1,13 +1,11 @@
 'use client'
 
-import useInvestigatorStore from '@/store/investigatorStore'
 import React from 'react'
 import InvestigatorCard from './InvestigatorCard'
+import { InvestigatorData } from '@/store/investigatorData'
 
 const InvestigatorList = () => {
-    const { investigatorDeck } = useInvestigatorStore((state) => ({
-        investigatorDeck: state.investigatorDeck,
-    }))
+    const investigatorDeck = InvestigatorData
 
     return (
         <div className="flex flex-row flex-wrap gap-8">

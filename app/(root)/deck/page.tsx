@@ -1,13 +1,13 @@
-import CardList from '@/components/CardList'
+import DeckList from '@/components/DeckList'
 
-const Card = () => {
+const Deck = () => {
     return (
         <section className="home">
             <div className="home-content">
-                <CardList />
+                <DeckList />
             </div>
         </section>
     )
 }
 
-export default Card
+export default Deck

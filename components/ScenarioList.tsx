@@ -13,13 +13,9 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 
 const ScenarioList = () => {
-    const { scenario, scenarioDeck, setScenario } = useScenarioStore(
-        (state) => ({
-            scenario: state.scenario,
-            scenarioDeck: state.scenarioDeck,
-            setScenario: state.setScenario,
-        })
-    )
+    const { scenarioDeck } = useScenarioStore((state) => ({
+        scenarioDeck: state.scenarioDeck,
+    }))
 
     return (
         <div className="flex flex-row flex-wrap gap-8">
@@ -56,17 +52,6 @@ const ScenarioList = () => {
                                         Enter
                                     </Link>
                                 </Button>
-
-                                {scenario !== scenarioData && (
-                                    <Button
-                                        variant="secondary"
-                                        onClick={() =>
-                                            setScenario(scenarioData)
-                                        }
-                                    >
-                                        Activate
-                                    </Button>
-                                )}
                             </CardFooter>
                         </Card>
                     )

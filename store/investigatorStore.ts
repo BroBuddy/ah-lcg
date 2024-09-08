@@ -1,28 +1,40 @@
 import { create } from 'zustand'
-import { InvestigatorData } from './investigatorData'
 
 type State = {
-    investigatorDeck: Investigator[]
     investigator: Investigator | null
+    investigatorDeck: DeckCard[] | []
 }
 
 type Actions = {
     setInvestigator: (investigator: Investigator) => void
-    findInvestigator: (investigatorUrl: string) => Investigator
+    addCardsIntoDeck: (deckCards: DeckCard[]) => void
 }
 
 const useInvestigatorStore = create<State & Actions>((set, get) => ({
-    investigatorDeck: InvestigatorData as [],
     investigator: null,
+    investigatorDeck: [],
     setInvestigator: (investigator: Investigator) => {
         set(() => ({
             investigator,
         }))
     },
-    findInvestigator: (investigatorUrl: string) => {
-        return get().investigatorDeck.find(
-            (investigator) => investigator.url === investigatorUrl
-        ) as Investigator
+    // addCardsToInvestigatorDeck: (deckCards: DeckCard[]) => {
+    //     set(() => ({
+    //         investigatorDeck: [...get().investigatorDeck, ...deckCards],
+    //     }))
+    // },
+    addCardsIntoDeck: (deckCards: DeckCard[]) => {
+        set((state) => ({
+            investigator: {
+                ...(state.investigator as Investigator),
+                cardDeck: [
+                    ...(state.investigator?.cardDeck as DeckCard[]),
+                    ...deckCards,
+                ],
+            },
+        }))
+        console.log(deckCards)
+        console.log(get().investigator)
     },
 }))
 

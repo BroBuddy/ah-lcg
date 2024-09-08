@@ -1,4 +1,8 @@
-import { DaisyDeck, RolandDeck } from './cardData'
+export const FindInvestigator = (investigatorUrl: string) => {
+    return InvestigatorData.find(
+        (investigator: Investigator) => investigator.url == investigatorUrl
+    )
+}
 
 export const InvestigatorData: Investigator[] = [
     {
@@ -17,7 +21,20 @@ export const InvestigatorData: Investigator[] = [
         sanity: 5,
         maxHealth: 9,
         maxSanity: 5,
-        cardDeck: RolandDeck,
+        cardDeck: [
+            {
+                category: 'player',
+                type: 'Asset',
+                url: 'investigator',
+                image: 'roland3.webp',
+            },
+            {
+                category: 'player',
+                type: 'Treachery',
+                url: 'investigator',
+                image: 'roland4.webp',
+            },
+        ],
     },
     {
         id: 2,
@@ -35,7 +52,20 @@ export const InvestigatorData: Investigator[] = [
         sanity: 9,
         maxHealth: 5,
         maxSanity: 9,
-        cardDeck: DaisyDeck,
+        cardDeck: [
+            {
+                category: 'player',
+                type: 'Asset',
+                url: 'investigator',
+                image: 'daisy3.webp',
+            },
+            {
+                category: 'player',
+                type: 'Asset',
+                url: 'investigator',
+                image: 'daisy4.webp',
+            },
+        ],
     },
     {
         id: 3,
@@ -53,6 +83,20 @@ export const InvestigatorData: Investigator[] = [
         sanity: 6,
         maxHealth: 8,
         maxSanity: 6,
+        cardDeck: [
+            {
+                category: 'player',
+                type: 'Asset',
+                url: 'investigator',
+                image: 'skids3.webp',
+            },
+            {
+                category: 'player',
+                type: 'Treachery',
+                url: 'investigator',
+                image: 'skids4.webp',
+            },
+        ],
     },
     {
         id: 4,
@@ -70,6 +114,20 @@ export const InvestigatorData: Investigator[] = [
         sanity: 8,
         maxHealth: 6,
         maxSanity: 8,
+        cardDeck: [
+            {
+                category: 'player',
+                type: 'Asset',
+                url: 'investigator',
+                image: 'agnes3.webp',
+            },
+            {
+                category: 'player',
+                type: 'Event',
+                url: 'investigator',
+                image: 'agnes4.webp',
+            },
+        ],
     },
     {
         id: 5,
@@ -87,5 +145,19 @@ export const InvestigatorData: Investigator[] = [
         sanity: 7,
         maxHealth: 7,
         maxSanity: 7,
+        cardDeck: [
+            {
+                category: 'player',
+                type: 'Asset',
+                url: 'investigator',
+                image: 'wendy3.webp',
+            },
+            {
+                category: 'player',
+                type: 'Treachery',
+                url: 'investigator',
+                image: 'wendy4.webp',
+            },
+        ],
     },
 ]
