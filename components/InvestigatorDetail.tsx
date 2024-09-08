@@ -107,31 +107,53 @@ const InvestigatorDetail = () => {
                                 </CardHeader>
 
                                 <CardContent>
-                                    <p>
-                                        Willpower: {investigatorData.skills[0]}
-                                    </p>
-                                    <p>
-                                        Intellect: {investigatorData.skills[1]}
-                                    </p>
-                                    <p>Combat: {investigatorData.skills[2]}</p>
-                                    <p>Agility: {investigatorData.skills[3]}</p>
+                                    <p>Willpower</p>
+                                    <Progress
+                                        className="bg-blue-400"
+                                        value={
+                                            (investigatorData.skills[0] * 100) /
+                                            5
+                                        }
+                                    />
+                                    <p>Intellect</p>
+                                    <Progress
+                                        className="bg-purple-400"
+                                        value={
+                                            (investigatorData.skills[1] * 100) /
+                                            5
+                                        }
+                                    />
+                                    <p>Combat</p>
+                                    <Progress
+                                        className="bg-red-400"
+                                        value={
+                                            (investigatorData.skills[2] * 100) /
+                                            5
+                                        }
+                                    />
+                                    <p>Agility</p>
+                                    <Progress
+                                        className="bg-green-400"
+                                        value={
+                                            (investigatorData.skills[3] * 100) /
+                                            5
+                                        }
+                                    />
 
-                                    <div className="my-6">
-                                        <p>Health: {investigatorData.health}</p>
-
+                                    <div className="mt-6">
+                                        <p>Health</p>
                                         <Progress
+                                            className="bg-red-400"
                                             value={
                                                 (investigatorData.health *
                                                     100) /
                                                 9
                                             }
                                         />
-                                    </div>
 
-                                    <div>
-                                        <p>Sanity: {investigatorData.sanity}</p>
-
+                                        <p>Sanity</p>
                                         <Progress
+                                            className="bg-blue-400"
                                             value={
                                                 (investigatorData.sanity *
                                                     100) /
