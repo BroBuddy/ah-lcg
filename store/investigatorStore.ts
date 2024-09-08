@@ -8,6 +8,7 @@ type State = {
 type Actions = {
     setInvestigator: (investigator: Investigator) => void
     addCardsIntoDeck: (deckCards: DeckCard[]) => void
+    removeCardFromDeck: (deckCard: DeckCard) => void
 }
 
 const useInvestigatorStore = create<State & Actions>((set, get) => ({
@@ -18,11 +19,6 @@ const useInvestigatorStore = create<State & Actions>((set, get) => ({
             investigator,
         }))
     },
-    // addCardsToInvestigatorDeck: (deckCards: DeckCard[]) => {
-    //     set(() => ({
-    //         investigatorDeck: [...get().investigatorDeck, ...deckCards],
-    //     }))
-    // },
     addCardsIntoDeck: (deckCards: DeckCard[]) => {
         set((state) => ({
             investigator: {
@@ -33,8 +29,19 @@ const useInvestigatorStore = create<State & Actions>((set, get) => ({
                 ],
             },
         }))
-        console.log(deckCards)
-        console.log(get().investigator)
+    },
+    removeCardFromDeck: (deckCard: DeckCard) => {
+        const cardDeck = get().investigator?.cardDeck
+        const cardIndex = cardDeck?.indexOf(deckCard)
+
+        cardDeck?.splice(Number(cardIndex), 1)
+
+        set((state) => ({
+            investigator: {
+                ...(state.investigator as Investigator),
+                cardDeck: [...(cardDeck as DeckCard[])],
+            },
+        }))
     },
 }))
 

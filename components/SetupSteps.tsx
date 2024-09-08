@@ -12,12 +12,12 @@ import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/use-toast'
 
 const SetupSteps = () => {
-    const { setInvestigator, addCardsIntoDeck } = useInvestigatorStore(
-        (state) => ({
+    const { investigator, setInvestigator, addCardsIntoDeck } =
+        useInvestigatorStore((state) => ({
+            investigator: state.investigator,
             setInvestigator: state.setInvestigator,
             addCardsIntoDeck: state.addCardsIntoDeck,
-        })
-    )
+        }))
 
     const { toast } = useToast()
 
@@ -94,6 +94,7 @@ const SetupSteps = () => {
                     {cardDecks.map((deckItem, index: number) => {
                         return (
                             <Button
+                                disabled={!investigator ? true : false}
                                 key={index}
                                 variant="outline"
                                 onClick={() => selectDeck(deckItem)}
@@ -114,7 +115,11 @@ const SetupSteps = () => {
                 </CardHeader>
 
                 <CardContent>
-                    <Button variant="outline" onClick={getRandomWeakness}>
+                    <Button
+                        disabled={!investigator ? true : false}
+                        variant="outline"
+                        onClick={getRandomWeakness}
+                    >
                         Get random weakness
                     </Button>
                 </CardContent>
