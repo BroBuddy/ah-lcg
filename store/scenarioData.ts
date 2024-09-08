@@ -40,6 +40,28 @@ export const ScenarioData: Scenario[] = [
                 progress: 0,
             },
         ],
+        locationDeck: [
+            {
+                front: '8a.webp',
+                back: '8b.webp',
+            },
+            {
+                front: '9a.webp',
+                back: '9b.webp',
+            },
+            {
+                front: '10a.webp',
+                back: '10b.webp',
+            },
+            {
+                front: '11a.webp',
+                back: '11b.webp',
+            },
+            {
+                front: '12a.webp',
+                back: '12b.webp',
+            },
+        ],
         scenarioDeck: TheGathering,
     },
     {

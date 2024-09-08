@@ -5,9 +5,10 @@ type FlipCardProps = {
     name: string
     url: string
     card: FlipCard
+    alignment?: 'H' | 'V'
 }
 
-const FlipCard = ({ name, url, card }: FlipCardProps) => {
+const FlipCard = ({ name, url, card, alignment = 'H' }: FlipCardProps) => {
     const { front, back } = card
 
     const [switchedCard, setSwichedCard] = useState<boolean>(false)
@@ -17,8 +18,8 @@ const FlipCard = ({ name, url, card }: FlipCardProps) => {
             src={`/${url}/${switchedCard ? back : front}`}
             onClick={() => setSwichedCard((prevState) => !prevState)}
             className="cursor-pointer rounded-xl image-card"
-            height={191}
-            width={264}
+            height={alignment === 'H' ? 191 : 264}
+            width={alignment === 'H' ? 264 : 191}
             alt={name}
         />
     )

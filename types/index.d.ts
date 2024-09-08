@@ -19,6 +19,7 @@ declare type Scenario = {
     setup: string[]
     agenda?: FlipCard[]
     act?: FlipCard[]
+    locationDeck?: FlipCard[]
     scenarioDeck?: DeckCard[]
 }
 

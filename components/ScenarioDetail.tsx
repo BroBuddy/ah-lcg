@@ -51,6 +51,9 @@ const ScenarioDetail = () => {
                         <TabsTrigger value="agendaAct">
                             Agenda & Act
                         </TabsTrigger>
+                        <TabsTrigger value="location">
+                            Location Deck
+                        </TabsTrigger>
                         <TabsTrigger value="encounter">
                             Encounter Deck
                         </TabsTrigger>
@@ -135,6 +138,35 @@ const ScenarioDetail = () => {
                                         )}
                                     </>
                                 )}
+                            </CardContent>
+                        </Card>
+                    </TabsContent>
+
+                    <TabsContent value="location">
+                        <Card>
+                            <CardHeader>
+                                <CardTitle>Location Deck</CardTitle>
+                            </CardHeader>
+
+                            <CardContent className="flex flex-row flex-wrap flex-1 gap-4">
+                                {!scenarioData.locationDeck && (
+                                    <div>No location cards available.</div>
+                                )}
+
+                                {scenarioData.locationDeck &&
+                                    scenarioData.locationDeck.map(
+                                        (card: FlipCard, index: number) => {
+                                            return (
+                                                <FlipCard
+                                                    key={index}
+                                                    url={`scenarios/${scenarioData.url}`}
+                                                    name={scenarioData.name}
+                                                    card={card}
+                                                    alignment="V"
+                                                />
+                                            )
+                                        }
+                                    )}
                             </CardContent>
                         </Card>
                     </TabsContent>
