@@ -66,7 +66,7 @@ const useInvestigatorStore = create<State & Actions>((set, get) => ({
         const activeDeck = get().investigator?.activeDeck as DeckCard[]
         const firstCard = cardDeck[0] as DeckCard
 
-        activeDeck.unshift(firstCard)
+        activeDeck.push(firstCard)
 
         get().removeCardFromDeck(firstCard)
 

@@ -26,13 +26,16 @@ declare type Scenario = {
 }
 
 declare type FlipCard = {
+    name?: string
+    type?: 'Location'
+    url?: string
     front: string
     back: string
     progress?: number
 }
 
 declare type DeckCard = {
-    category: string
+    name?: string
     type: 'Asset' | 'Enemy' | 'Event' | 'Skill' | 'Treachery'
     url: string
     image: string

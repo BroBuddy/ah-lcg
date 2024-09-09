@@ -37,7 +37,7 @@ const CardDeck = (deck: { deck: DeckCard[] }) => {
                             return (
                                 <React.Fragment key={index}>
                                     <Image
-                                        src={`/${card.category}/${card.url}/${card.image}`}
+                                        src={`/${card.url}/${card.image}`}
                                         height={264}
                                         width={191}
                                         className="image-card"

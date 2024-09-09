@@ -159,7 +159,7 @@ const ScenarioDetail = () => {
                                             return (
                                                 <FlipCard
                                                     key={index}
-                                                    url={`scenarios/${scenarioData.url}`}
+                                                    url={card.url as string}
                                                     name={scenarioData.name}
                                                     card={card}
                                                     alignment="V"

@@ -42,22 +42,37 @@ export const ScenarioData: Scenario[] = [
         ],
         locationDeck: [
             {
+                name: 'Study',
+                type: 'Location',
+                url: 'scenarios/the-gathering',
                 front: '8a.webp',
                 back: '8b.webp',
             },
             {
+                name: 'Hallway',
+                type: 'Location',
+                url: 'scenarios/the-gathering',
                 front: '9a.webp',
                 back: '9b.webp',
             },
             {
+                name: 'Attic',
+                type: 'Location',
+                url: 'scenarios/the-gathering',
                 front: '10a.webp',
                 back: '10b.webp',
             },
             {
+                name: 'Cellar',
+                type: 'Location',
+                url: 'scenarios/the-gathering',
                 front: '11a.webp',
                 back: '11b.webp',
             },
             {
+                name: 'Parlor',
+                type: 'Location',
+                url: 'scenarios/the-gathering',
                 front: '12a.webp',
                 back: '12b.webp',
             },
