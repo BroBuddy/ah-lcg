@@ -9,6 +9,7 @@ type State = {
 type Actions = {
     setScenario: (scenario: Scenario) => void
     findScenario: (scenarioUrl: string) => Scenario
+    shuffleEncounterDeck: () => void
 }
 
 const useScenarioStore = create<State & Actions>((set, get) => ({
@@ -23,6 +24,25 @@ const useScenarioStore = create<State & Actions>((set, get) => ({
         return get().scenarioDeck.find(
             (scenario) => scenario.url === scenarioUrl
         ) as Scenario
+    },
+    shuffleEncounterDeck: () => {
+        const scenarioDeck = get().scenario?.scenarioDeck as DeckCard[]
+
+        for (let i = scenarioDeck.length - 1; i >= 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1))
+
+            ;[scenarioDeck[i], scenarioDeck[j]] = [
+                scenarioDeck[j],
+                scenarioDeck[i],
+            ]
+        }
+
+        set((state) => ({
+            scenario: {
+                ...(state.scenario as Scenario),
+                scenarioDeck: [...(scenarioDeck as DeckCard[])],
+            },
+        }))
     },
 }))
 

@@ -10,6 +10,8 @@ import { InvestigatorData } from '@/store/investigatorData'
 import useInvestigatorStore from '@/store/investigatorStore'
 import { Button } from '@/components/ui/button'
 import { useToast } from '@/hooks/use-toast'
+import Link from 'next/link'
+import useScenarioStore from '@/store/scenarioStore'
 
 const SetupSteps = () => {
     const { investigator, setInvestigator, addCardsIntoDeck } =
@@ -18,6 +20,14 @@ const SetupSteps = () => {
             setInvestigator: state.setInvestigator,
             addCardsIntoDeck: state.addCardsIntoDeck,
         }))
+
+    const { scenario, scenarioDeck, setScenario } = useScenarioStore(
+        (state) => ({
+            scenario: state.scenario,
+            scenarioDeck: state.scenarioDeck,
+            setScenario: state.setScenario,
+        })
+    )
 
     const { toast } = useToast()
 
@@ -34,6 +44,14 @@ const SetupSteps = () => {
 
         toast({
             title: `${deckItem.name} was added`,
+        })
+    }
+
+    const selectScenario = (scenario: Scenario) => {
+        setScenario(scenario)
+
+        toast({
+            title: `${scenario.name} was added`,
         })
     }
 
@@ -121,6 +139,54 @@ const SetupSteps = () => {
                         onClick={getRandomWeakness}
                     >
                         Get random weakness
+                    </Button>
+                </CardContent>
+            </Card>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>Step 4: Scenario</CardTitle>
+                    <CardDescription>
+                        Last but not least select a scenario.
+                    </CardDescription>
+                </CardHeader>
+
+                <CardContent className="flex flex-row flex-wrap gap-4">
+                    {scenarioDeck &&
+                        scenarioDeck?.map(
+                            (scenarioData: Scenario, index: number) => {
+                                return (
+                                    <Button
+                                        disabled={!investigator ? true : false}
+                                        key={index}
+                                        variant="outline"
+                                        onClick={() =>
+                                            selectScenario(scenarioData)
+                                        }
+                                    >
+                                        {scenarioData.name}
+                                    </Button>
+                                )
+                            }
+                        )}
+                </CardContent>
+            </Card>
+
+            <Card>
+                <CardHeader>
+                    <CardTitle>Step 5: Play</CardTitle>
+                    <CardDescription>
+                        You are ready to play a scenario.
+                    </CardDescription>
+                </CardHeader>
+
+                <CardContent>
+                    <Button
+                        disabled={!investigator && !scenario ? true : false}
+                        asChild
+                        variant="outline"
+                    >
+                        <Link href="/play">Ready to play</Link>
                     </Button>
                 </CardContent>
             </Card>
