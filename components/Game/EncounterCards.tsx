@@ -18,7 +18,7 @@ const EncounterCards = () => {
         <div className="flex flex-col gap-8">
             <Card>
                 <CardHeader>
-                    <CardTitle>Encounter Cards</CardTitle>
+                    <CardTitle>Encounter</CardTitle>
                 </CardHeader>
 
                 {!scenario?.locationDeck && (
@@ -34,7 +34,7 @@ const EncounterCards = () => {
                             disabled={!scenario ? true : false}
                             onClick={() => shuffleEncounterDeck()}
                         >
-                            Shuffle Encounter Deck
+                            Shuffle Deck
                         </Button>
 
                         <Button

@@ -12,10 +12,8 @@ const Play = () => {
                     <TabsList>
                         <TabsTrigger value="scenario">Scenario</TabsTrigger>
                         <TabsTrigger value="locations">Locations</TabsTrigger>
-                        <TabsTrigger value="encounter">
-                            Encounter Cards
-                        </TabsTrigger>
-                        <TabsTrigger value="player">Player Cards</TabsTrigger>
+                        <TabsTrigger value="encounter">Encounter</TabsTrigger>
+                        <TabsTrigger value="player">Player</TabsTrigger>
                     </TabsList>
 
                     <TabsContent value="scenario">

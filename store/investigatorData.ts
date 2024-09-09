@@ -35,6 +35,8 @@ export const InvestigatorData: Investigator[] = [
                 image: 'roland4.webp',
             },
         ],
+        activeDeck: [],
+        discardDeck: [],
     },
     {
         id: 2,
@@ -66,6 +68,8 @@ export const InvestigatorData: Investigator[] = [
                 image: 'daisy4.webp',
             },
         ],
+        activeDeck: [],
+        discardDeck: [],
     },
     {
         id: 3,
@@ -97,6 +101,8 @@ export const InvestigatorData: Investigator[] = [
                 image: 'skids4.webp',
             },
         ],
+        activeDeck: [],
+        discardDeck: [],
     },
     {
         id: 4,
@@ -128,6 +134,8 @@ export const InvestigatorData: Investigator[] = [
                 image: 'agnes4.webp',
             },
         ],
+        activeDeck: [],
+        discardDeck: [],
     },
     {
         id: 5,
@@ -159,5 +167,7 @@ export const InvestigatorData: Investigator[] = [
                 image: 'wendy4.webp',
             },
         ],
+        activeDeck: [],
+        discardDeck: [],
     },
 ]

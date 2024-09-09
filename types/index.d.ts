@@ -10,6 +10,8 @@ declare type Investigator = {
     maxHealth: number
     maxSanity: number
     cardDeck?: DeckCard[]
+    activeDeck?: DeckCard[]
+    discardDeck?: DeckCard[]
 }
 
 declare type Scenario = {

@@ -1,18 +1,15 @@
 'use client'
 
-import { useParams } from 'next/navigation'
 import { Card, CardHeader } from '@/components/ui/card'
 import React from 'react'
-import CardDeck from './CardDeck'
 import InvestigatorInformation from './InvestigatorInformation'
 import InvestigatorCard from './InvestigatorCard'
 import { FindInvestigator } from '@/store/investigatorData'
 
-const InvestigatorDetail = () => {
-    const params = useParams()
-    const { slug } = params
-
-    const investigatorData: Investigator = FindInvestigator(slug as string)
+const InvestigatorDetail = (investigator: { investigator?: Investigator }) => {
+    const investigatorData: Investigator = FindInvestigator(
+        String(investigator.investigator?.url)
+    )
 
     if (!investigatorData) {
         return (
@@ -38,12 +35,6 @@ const InvestigatorDetail = () => {
                             health={investigatorData.health}
                             sanity={investigatorData.sanity}
                             skills={investigatorData.skills}
-                        />
-                    </div>
-
-                    <div className="flex flex-1 w-[732px]">
-                        <CardDeck
-                            deck={investigatorData.cardDeck as DeckCard[]}
                         />
                     </div>
                 </>

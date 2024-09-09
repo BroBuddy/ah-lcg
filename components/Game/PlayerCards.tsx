@@ -5,22 +5,25 @@ import useInvestigatorStore from '@/store/investigatorStore'
 import CardDeck from '@/components/CardDeck'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
+import InvestigatorDetail from '../InvestigatorDetail'
 
 const PlayerCards = () => {
-    const { investigator, shuffleInvestigatorDeck } = useInvestigatorStore(
-        (state) => ({
+    const { investigator, shuffleInvestigatorDeck, drawCardFromCardDeck } =
+        useInvestigatorStore((state) => ({
             investigator: state.investigator,
             shuffleInvestigatorDeck: state.shuffleInvestigatorDeck,
-        })
-    )
+            drawCardFromCardDeck: state.drawCardFromCardDeck,
+        }))
 
     const [showCards, setShowCards] = useState<boolean>(false)
 
     return (
         <div className="flex flex-col gap-8">
+            {investigator && <InvestigatorDetail investigator={investigator} />}
+
             <Card>
                 <CardHeader>
-                    <CardTitle>Player Cards</CardTitle>
+                    <CardTitle>Player</CardTitle>
                 </CardHeader>
 
                 {!investigator?.cardDeck && (
@@ -34,9 +37,16 @@ const PlayerCards = () => {
                         <Button
                             variant="outline"
                             disabled={!investigator ? true : false}
+                            onClick={() => drawCardFromCardDeck()}
+                        >
+                            Draw Card
+                        </Button>
+                        <Button
+                            variant="outline"
+                            disabled={!investigator ? true : false}
                             onClick={() => shuffleInvestigatorDeck()}
                         >
-                            Shuffle Player Deck
+                            Shuffle Deck
                         </Button>
 
                         <Button
@@ -52,7 +62,11 @@ const PlayerCards = () => {
                 )}
             </Card>
 
-            {investigator && showCards && (
+            {investigator?.activeDeck && (
+                <CardDeck deck={investigator.activeDeck} />
+            )}
+
+            {investigator?.cardDeck && showCards && (
                 <CardDeck deck={investigator.cardDeck} />
             )}
         </div>

@@ -10,6 +10,7 @@ type Actions = {
     shuffleInvestigatorDeck: () => void
     addCardsIntoDeck: (deckCards: DeckCard[]) => void
     removeCardFromDeck: (deckCard: DeckCard) => void
+    drawCardFromCardDeck: () => void
 }
 
 const useInvestigatorStore = create<State & Actions>((set, get) => ({
@@ -57,6 +58,22 @@ const useInvestigatorStore = create<State & Actions>((set, get) => ({
             investigator: {
                 ...(state.investigator as Investigator),
                 cardDeck: [...(cardDeck as DeckCard[])],
+            },
+        }))
+    },
+    drawCardFromCardDeck: () => {
+        const cardDeck = get().investigator?.cardDeck as DeckCard[]
+        const activeDeck = get().investigator?.activeDeck as DeckCard[]
+        const firstCard = cardDeck[0] as DeckCard
+
+        activeDeck.unshift(firstCard)
+
+        get().removeCardFromDeck(firstCard)
+
+        set((state) => ({
+            investigator: {
+                ...(state.investigator as Investigator),
+                activeDeck: [...activeDeck],
             },
         }))
     },
