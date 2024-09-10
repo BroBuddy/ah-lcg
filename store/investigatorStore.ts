@@ -2,14 +2,14 @@ import { create } from 'zustand'
 
 type State = {
     investigator: Investigator | null
-    investigatorDeck: DeckCard[] | []
+    investigatorDeck: FlipCard[] | []
 }
 
 type Actions = {
     setInvestigator: (investigator: Investigator) => void
     shuffleInvestigatorDeck: () => void
-    addCardsIntoDeck: (deckCards: DeckCard[]) => void
-    removeCardFromDeck: (deckCard: DeckCard) => void
+    addCardsIntoDeck: (FlipCards: FlipCard[]) => void
+    removeCardFromDeck: (FlipCard: FlipCard) => void
     drawCardFromCardDeck: () => void
 }
 
@@ -22,7 +22,7 @@ const useInvestigatorStore = create<State & Actions>((set, get) => ({
         }))
     },
     shuffleInvestigatorDeck: () => {
-        const cardDeck = get().investigator?.cardDeck as DeckCard[]
+        const cardDeck = get().investigator?.cardDeck as FlipCard[]
 
         for (let i = cardDeck.length - 1; i >= 0; i--) {
             const j = Math.floor(Math.random() * (i + 1))
@@ -33,38 +33,38 @@ const useInvestigatorStore = create<State & Actions>((set, get) => ({
         set((state) => ({
             investigator: {
                 ...(state.investigator as Investigator),
-                cardDeck: [...(cardDeck as DeckCard[])],
+                cardDeck: [...(cardDeck as FlipCard[])],
             },
         }))
     },
-    addCardsIntoDeck: (deckCards: DeckCard[]) => {
+    addCardsIntoDeck: (FlipCards: FlipCard[]) => {
         set((state) => ({
             investigator: {
                 ...(state.investigator as Investigator),
                 cardDeck: [
-                    ...(state.investigator?.cardDeck as DeckCard[]),
-                    ...deckCards,
+                    ...(state.investigator?.cardDeck as FlipCard[]),
+                    ...FlipCards,
                 ],
             },
         }))
     },
-    removeCardFromDeck: (deckCard: DeckCard) => {
-        const cardDeck = get().investigator?.cardDeck as DeckCard[]
-        const cardIndex = cardDeck.indexOf(deckCard)
+    removeCardFromDeck: (FlipCard: FlipCard) => {
+        const cardDeck = get().investigator?.cardDeck as FlipCard[]
+        const cardIndex = cardDeck.indexOf(FlipCard)
 
         cardDeck.splice(Number(cardIndex), 1)
 
         set((state) => ({
             investigator: {
                 ...(state.investigator as Investigator),
-                cardDeck: [...(cardDeck as DeckCard[])],
+                cardDeck: [...(cardDeck as FlipCard[])],
             },
         }))
     },
     drawCardFromCardDeck: () => {
-        const cardDeck = get().investigator?.cardDeck as DeckCard[]
-        const activeDeck = get().investigator?.activeDeck as DeckCard[]
-        const firstCard = cardDeck[0] as DeckCard
+        const cardDeck = get().investigator?.cardDeck as FlipCard[]
+        const activeDeck = get().investigator?.activeDeck as FlipCard[]
+        const firstCard = cardDeck[0] as FlipCard
 
         activeDeck.push(firstCard)
 

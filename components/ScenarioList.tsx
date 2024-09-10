@@ -1,7 +1,6 @@
 'use client'
 
 import useScenarioStore from '@/store/scenarioStore'
-import Image from 'next/image'
 import {
     Card,
     CardContent,
@@ -11,6 +10,8 @@ import {
 } from '@/components/ui/card'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import React from 'react'
+import FlipCard from './FlipCard'
 
 const ScenarioList = () => {
     const { scenarioDeck } = useScenarioStore((state) => ({
@@ -22,23 +23,18 @@ const ScenarioList = () => {
             {scenarioDeck &&
                 scenarioDeck?.map((scenarioData: Scenario, index: number) => {
                     return (
-                        <Card key={index} className="w-[500px]">
+                        <Card key={index} className="w-[300px]">
                             <CardHeader>
                                 <CardTitle>{scenarioData.name}</CardTitle>
                             </CardHeader>
 
                             <CardContent className="flex flex-row gap-4">
                                 {scenarioData.setup.map(
-                                    (card: string, index: number) => {
+                                    (card: FlipCard, index: number) => {
                                         return (
-                                            <Image
-                                                key={index}
-                                                src={`/scenarios/${scenarioData.url}/${card}`}
-                                                height={264}
-                                                width={191}
-                                                alt={scenarioData.name}
-                                                className="image-card"
-                                            />
+                                            <React.Fragment key={index}>
+                                                <FlipCard card={card} />
+                                            </React.Fragment>
                                         )
                                     }
                                 )}

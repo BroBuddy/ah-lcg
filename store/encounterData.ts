@@ -1,186 +1,186 @@
-export const Rats: DeckCard[] = [
+export const Rats: FlipCard[] = [
     {
         name: 'Swarm of Rats',
         type: 'Enemy',
-        url: 'encounter/rats',
-        image: '57.webp',
+        front: 'encounter/rats/57.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Swarm of Rats',
         type: 'Enemy',
-        url: 'encounter/rats',
-        image: '57.webp',
+        front: 'encounter/rats/57.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Swarm of Rats',
         type: 'Enemy',
-        url: 'encounter/rats',
-        image: '57.webp',
+        front: 'encounter/rats/57.webp',
+        back: 'encounter/cardback.png',
     },
 ]
 
-export const Ghouls: DeckCard[] = [
+export const Ghouls: FlipCard[] = [
     {
         name: 'Ghoul Minion',
         type: 'Enemy',
-        url: 'encounter/ghouls',
-        image: '58.webp',
+        front: 'encounter/ghouls/58.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Ghoul Minion',
         type: 'Enemy',
-        url: 'encounter/ghouls',
-        image: '58.webp',
+        front: 'encounter/ghouls/58.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Ghoul Minion',
         type: 'Enemy',
-        url: 'encounter/ghouls',
-        image: '58.webp',
+        front: 'encounter/ghouls/58.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Ravenous Ghoul',
         type: 'Enemy',
-        url: 'encounter/ghouls',
-        image: '59.webp',
+        front: 'encounter/ghouls/59.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Grasping Hands',
         type: 'Treachery',
-        url: 'encounter/ghouls',
-        image: '60.webp',
+        front: 'encounter/ghouls/60.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Grasping Hands',
         type: 'Treachery',
-        url: 'encounter/ghouls',
-        image: '60.webp',
+        front: 'encounter/ghouls/60.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Grasping Hands',
         type: 'Treachery',
-        url: 'encounter/ghouls',
-        image: '60.webp',
+        front: 'encounter/ghouls/60.webp',
+        back: 'encounter/cardback.png',
     },
 ]
 
-export const StrikingFear: DeckCard[] = [
+export const StrikingFear: FlipCard[] = [
     {
         name: 'Rotting Remains',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '61.webp',
+        front: 'encounter/striking-fear/61.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Rotting Remains',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '61.webp',
+        front: 'encounter/striking-fear/61.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Rotting Remains',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '61.webp',
+        front: 'encounter/striking-fear/61.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Frozen in Fear',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '62.webp',
+        front: 'encounter/striking-fear/62.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Frozen in Fear',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '62.webp',
+        front: 'encounter/striking-fear/62.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Dissonant Voices',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '63.webp',
+        front: 'encounter/striking-fear/63.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Dissonant Voices',
         type: 'Treachery',
-        url: 'encounter/striking-fear',
-        image: '63.webp',
+        front: 'encounter/striking-fear/63.webp',
+        back: 'encounter/cardback.png',
     },
 ]
 
-export const AncientEvils: DeckCard[] = [
+export const AncientEvils: FlipCard[] = [
     {
         name: 'Ancient Evils',
         type: 'Treachery',
-        url: 'encounter/ancient-evils',
-        image: '64.webp',
+        front: 'encounter/ancient-evils/64.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Ancient Evils',
         type: 'Treachery',
-        url: 'encounter/ancient-evils',
-        image: '64.webp',
+        front: 'encounter/ancient-evils/64.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Ancient Evils',
         type: 'Treachery',
-        url: 'encounter/ancient-evils',
-        image: '64.webp',
+        front: 'encounter/ancient-evils/64.webp',
+        back: 'encounter/cardback.png',
     },
 ]
 
-export const ChillingCold: DeckCard[] = [
+export const ChillingCold: FlipCard[] = [
     {
         name: 'Crypt Chill',
         type: 'Treachery',
-        url: 'encounter/chilling-cold',
-        image: '65.webp',
+        front: 'encounter/chilling-cold/65.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Crypt Chill',
         type: 'Treachery',
-        url: 'encounter/chilling-cold',
-        image: '65.webp',
+        front: 'encounter/chilling-cold/65.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Obscuring Fog',
         type: 'Treachery',
-        url: 'encounter/chilling-cold',
-        image: '67.webp',
+        front: 'encounter/chilling-cold/67.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Obscuring Fog',
         type: 'Treachery',
-        url: 'encounter/chilling-cold',
-        image: '67.webp',
+        front: 'encounter/chilling-cold/67.webp',
+        back: 'encounter/cardback.png',
     },
 ]
 
-export const TheGathering: DeckCard[] = [
+export const TheGathering: FlipCard[] = [
     {
         name: 'Ghoul Priest',
         type: 'Enemy',
-        url: 'encounter/the-gathering',
-        image: '13.webp',
+        front: 'encounter/the-gathering/13.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Lita Chantler',
         type: 'Asset',
-        url: 'encounter/the-gathering',
-        image: '14.webp',
+        front: 'encounter/the-gathering/14.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Flesh-Eater',
         type: 'Enemy',
-        url: 'encounter/the-gathering',
-        image: '15.webp',
+        front: 'encounter/the-gathering/15.webp',
+        back: 'encounter/cardback.png',
     },
     {
         name: 'Icy Ghoul',
         type: 'Enemy',
-        url: 'encounter/the-gathering',
-        image: '16.webp',
+        front: 'encounter/the-gathering/16.webp',
+        back: 'encounter/cardback.png',
     },
 ]
     .concat(Rats)

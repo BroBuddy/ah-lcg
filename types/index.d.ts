@@ -9,34 +9,27 @@ declare type Investigator = {
     sanity: number
     maxHealth: number
     maxSanity: number
-    cardDeck?: DeckCard[]
-    activeDeck?: DeckCard[]
-    discardDeck?: DeckCard[]
+    cardDeck?: FlipCard[]
+    activeDeck?: FlipCard[]
+    discardDeck?: FlipCard[]
 }
 
 declare type Scenario = {
     id: number
     name: string
     url: string
-    setup: string[]
+    setup: FlipCard[]
     agenda?: FlipCard[]
     act?: FlipCard[]
     locationDeck?: FlipCard[]
-    scenarioDeck?: DeckCard[]
+    scenarioDeck?: FlipCard[]
 }
 
 declare type FlipCard = {
     name?: string
-    type?: 'Location'
-    url?: string
+    type?: 'Asset' | 'Enemy' | 'Event' | 'Skill' | 'Treachery' | 'Location'
     front: string
-    back: string
+    back: string | null
     progress?: number
-}
-
-declare type DeckCard = {
-    name?: string
-    type: 'Asset' | 'Enemy' | 'Event' | 'Skill' | 'Treachery'
-    url: string
-    image: string
+    alignment?: 'H' | 'V'
 }

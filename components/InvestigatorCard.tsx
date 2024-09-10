@@ -9,6 +9,7 @@ import {
 import { Button } from '@/components/ui/button'
 import FlipCard from './FlipCard'
 import Link from 'next/link'
+import React from 'react'
 
 type CardProps = {
     investigatorData: Investigator
@@ -29,12 +30,9 @@ const InvestigatorCard = ({
             <CardContent>
                 {investigatorData.cards.map((card: FlipCard, index: number) => {
                     return (
-                        <FlipCard
-                            key={index}
-                            url={'player/investigator'}
-                            name={investigatorData.name}
-                            card={card}
-                        />
+                        <React.Fragment key={index}>
+                            <FlipCard card={card} />
+                        </React.Fragment>
                     )
                 })}
             </CardContent>

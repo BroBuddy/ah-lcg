@@ -4,14 +4,14 @@ import { EncounterCards, PlayerCards } from '@/store/cardData'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import CardDeck from './CardDeck'
 
-const filterAndSortDeck = (deck: DeckCard[]) => {
+const filterAndSortDeck = (deck: FlipCard[]) => {
     return deck
         .filter(
-            (item: DeckCard, index: number, cards: DeckCard[]) =>
-                cards.findIndex((card) => card.image === item.image) === index
+            (item: FlipCard, index: number, cards: FlipCard[]) =>
+                cards.findIndex((card) => card.front === item.front) === index
         )
-        .sort((firstCard: DeckCard, secondCard: DeckCard) =>
-            firstCard.url.localeCompare(secondCard.url)
+        .sort((firstCard: FlipCard, secondCard: FlipCard) =>
+            firstCard.front.localeCompare(secondCard.front)
         )
 }
 
@@ -27,11 +27,11 @@ const CardList = () => {
             </TabsList>
 
             <TabsContent value="player">
-                <CardDeck deck={playerDeck as DeckCard[]} />
+                <CardDeck deck={playerDeck as FlipCard[]} />
             </TabsContent>
 
             <TabsContent value="encounter">
-                <CardDeck deck={encounterDeck as DeckCard[]} />
+                <CardDeck deck={encounterDeck as FlipCard[]} />
             </TabsContent>
         </Tabs>
     )

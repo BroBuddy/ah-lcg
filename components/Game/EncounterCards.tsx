@@ -24,15 +24,15 @@ const EncounterCards = () => {
 
     const [showCards, setShowCards] = useState<boolean>(false)
 
-    const activateCard = (card: DeckCard | FlipCard) => {
+    const activateCard = (card: FlipCard) => {
         addCardToDragZone(card)
     }
 
-    const deactivateCard = (card: DeckCard | FlipCard) => {
+    const deactivateCard = (card: FlipCard) => {
         removeCardFromDragZone(card)
     }
 
-    const isLocationAtDragZone = (card: DeckCard | FlipCard) => {
+    const isLocationAtDragZone = (card: FlipCard) => {
         return dragZone.includes(card)
     }
 
@@ -72,7 +72,7 @@ const EncounterCards = () => {
                 <ScrollArea className="h-[460px] w-[460px] rounded-md border p-4">
                     {scenario?.scenarioDeck &&
                         scenario.scenarioDeck.map(
-                            (card: DeckCard, index: number) => {
+                            (card: FlipCard, index: number) => {
                                 return (
                                     <div
                                         className="flex flex-row justify-between items-center gap-4"

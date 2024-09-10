@@ -5,13 +5,15 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card'
-import Image from 'next/image'
 import React from 'react'
+import FlipCard from './FlipCard'
 
-const CardDeck = (deck: { deck: DeckCard[] }) => {
+const CardDeck = (cards: { deck: FlipCard[] }) => {
+    const { deck } = cards
+
     return (
         <>
-            {!deck.deck && (
+            {!deck && (
                 <Card className="w-full">
                     <CardHeader>
                         <CardTitle>Deck Cards</CardTitle>
@@ -23,26 +25,20 @@ const CardDeck = (deck: { deck: DeckCard[] }) => {
                 </Card>
             )}
 
-            {deck.deck && (
+            {deck && (
                 <Card className="w-full">
                     <CardHeader>
                         <CardTitle>Deck Cards</CardTitle>
                         <CardDescription>
-                            Total cards: {deck.deck.length}
+                            Total cards: {deck.length}
                         </CardDescription>
                     </CardHeader>
 
                     <CardContent className="flex flex-row flex-wrap flex-1 gap-4">
-                        {deck.deck.map((card: DeckCard, index: number) => {
+                        {deck.map((card: FlipCard, index: number) => {
                             return (
                                 <React.Fragment key={index}>
-                                    <Image
-                                        src={`/${card.url}/${card.image}`}
-                                        height={264}
-                                        width={191}
-                                        className="image-card"
-                                        alt="Deck Card"
-                                    />
+                                    <FlipCard card={card} />
                                 </React.Fragment>
                             )
                         })}

@@ -1,7 +1,6 @@
 'use client'
 
 import useScenarioStore from '@/store/scenarioStore'
-import Image from 'next/image'
 import React from 'react'
 import FlipCard from './FlipCard'
 import {
@@ -43,11 +42,8 @@ const ScenarioDetail = () => {
     return (
         <>
             {scenarioData && (
-                <Tabs defaultValue="scenario">
+                <Tabs defaultValue="agendaAct">
                     <TabsList>
-                        <TabsTrigger value="scenario">
-                            {scenarioData.name}
-                        </TabsTrigger>
                         <TabsTrigger value="agendaAct">
                             Agenda & Act
                         </TabsTrigger>
@@ -58,45 +54,6 @@ const ScenarioDetail = () => {
                             Encounter Deck
                         </TabsTrigger>
                     </TabsList>
-
-                    <TabsContent value="scenario">
-                        <Card className="w-[500px]">
-                            <CardHeader>
-                                <CardTitle>{scenarioData.name}</CardTitle>
-                            </CardHeader>
-
-                            <CardContent className="flex flex-row gap-4">
-                                {scenarioData.setup &&
-                                    scenarioData.setup.map(
-                                        (card: string, index: number) => {
-                                            return (
-                                                <Image
-                                                    key={index}
-                                                    src={`/scenarios/${scenarioData.url}/${card}`}
-                                                    height={264}
-                                                    width={191}
-                                                    alt={scenarioData.name}
-                                                    className="image-card"
-                                                />
-                                            )
-                                        }
-                                    )}
-                            </CardContent>
-
-                            {scenario !== scenarioData && (
-                                <CardFooter className="gap-2">
-                                    <Button
-                                        variant="outline"
-                                        onClick={() =>
-                                            setScenario(scenarioData)
-                                        }
-                                    >
-                                        Activate
-                                    </Button>
-                                </CardFooter>
-                            )}
-                        </Card>
-                    </TabsContent>
 
                     <TabsContent value="agendaAct">
                         <Card>
@@ -114,12 +71,9 @@ const ScenarioDetail = () => {
                                         {scenarioData.agenda.map(
                                             (card: FlipCard, index: number) => {
                                                 return (
-                                                    <FlipCard
-                                                        key={index}
-                                                        url={`scenarios/${scenarioData.url}`}
-                                                        name={scenarioData.name}
-                                                        card={card}
-                                                    />
+                                                    <React.Fragment key={index}>
+                                                        <FlipCard card={card} />
+                                                    </React.Fragment>
                                                 )
                                             }
                                         )}
@@ -127,12 +81,9 @@ const ScenarioDetail = () => {
                                         {scenarioData.act.map(
                                             (card: FlipCard, index: number) => {
                                                 return (
-                                                    <FlipCard
-                                                        key={index}
-                                                        url={`scenarios/${scenarioData.url}`}
-                                                        name={scenarioData.name}
-                                                        card={card}
-                                                    />
+                                                    <React.Fragment key={index}>
+                                                        <FlipCard card={card} />
+                                                    </React.Fragment>
                                                 )
                                             }
                                         )}
@@ -157,13 +108,9 @@ const ScenarioDetail = () => {
                                     scenarioData.locationDeck.map(
                                         (card: FlipCard, index: number) => {
                                             return (
-                                                <FlipCard
-                                                    key={index}
-                                                    url={card.url as string}
-                                                    name={scenarioData.name}
-                                                    card={card}
-                                                    alignment="V"
-                                                />
+                                                <React.Fragment key={index}>
+                                                    <FlipCard card={card} />
+                                                </React.Fragment>
                                             )
                                         }
                                     )}
@@ -173,7 +120,7 @@ const ScenarioDetail = () => {
 
                     <TabsContent value="encounter">
                         <CardDeck
-                            deck={scenarioData.scenarioDeck as DeckCard[]}
+                            deck={scenarioData.scenarioDeck as FlipCard[]}
                         />
                     </TabsContent>
                 </Tabs>

@@ -12,8 +12,9 @@ export const InvestigatorData: Investigator[] = [
         class: 'Guardian',
         cards: [
             {
-                front: 'roland1.webp',
-                back: 'roland2.webp',
+                front: 'player/investigator/roland1.webp',
+                back: 'player/investigator/roland2.webp',
+                alignment: 'H',
             },
         ],
         skills: [3, 3, 4, 2],
@@ -24,13 +25,13 @@ export const InvestigatorData: Investigator[] = [
         cardDeck: [
             {
                 type: 'Asset',
-                url: 'player/investigator',
-                image: 'roland3.webp',
+                front: 'player/investigator/roland3.webp',
+                back: 'player/cardback.png',
             },
             {
                 type: 'Treachery',
-                url: 'player/investigator',
-                image: 'roland4.webp',
+                front: 'player/investigator/roland4.webp',
+                back: 'player/cardback.png',
             },
         ],
         activeDeck: [],
@@ -43,8 +44,9 @@ export const InvestigatorData: Investigator[] = [
         class: 'Seeker',
         cards: [
             {
-                front: 'daisy1.webp',
-                back: 'daisy2.webp',
+                front: 'player/investigator/daisy1.webp',
+                back: 'player/investigator/daisy2.webp',
+                alignment: 'H',
             },
         ],
         skills: [3, 5, 2, 2],
@@ -55,13 +57,13 @@ export const InvestigatorData: Investigator[] = [
         cardDeck: [
             {
                 type: 'Asset',
-                url: 'player/investigator',
-                image: 'daisy3.webp',
+                front: 'player/investigator/daisy3.webp',
+                back: 'player/cardback.png',
             },
             {
                 type: 'Asset',
-                url: 'player/investigator',
-                image: 'daisy4.webp',
+                front: 'player/investigator/daisy4.webp',
+                back: 'player/cardback.png',
             },
         ],
         activeDeck: [],
@@ -74,8 +76,9 @@ export const InvestigatorData: Investigator[] = [
         class: 'Rogue',
         cards: [
             {
-                front: 'skids1.webp',
-                back: 'skids2.webp',
+                front: 'player/investigator/skids1.webp',
+                back: 'player/investigator/skids2.webp',
+                alignment: 'H',
             },
         ],
         skills: [2, 3, 3, 4],
@@ -86,13 +89,13 @@ export const InvestigatorData: Investigator[] = [
         cardDeck: [
             {
                 type: 'Asset',
-                url: 'player/investigator',
-                image: 'skids3.webp',
+                front: 'player/investigator/skids3.webp',
+                back: 'player/cardback.png',
             },
             {
                 type: 'Treachery',
-                url: 'player/investigator',
-                image: 'skids4.webp',
+                front: 'player/investigator/skids4.webp',
+                back: 'player/cardback.png',
             },
         ],
         activeDeck: [],
@@ -105,8 +108,9 @@ export const InvestigatorData: Investigator[] = [
         class: 'Mystic',
         cards: [
             {
-                front: 'agnes1.webp',
-                back: 'agnes2.webp',
+                front: 'player/investigator/agnes1.webp',
+                back: 'player/investigator/agnes2.webp',
+                alignment: 'H',
             },
         ],
         skills: [5, 2, 2, 3],
@@ -117,13 +121,13 @@ export const InvestigatorData: Investigator[] = [
         cardDeck: [
             {
                 type: 'Asset',
-                url: 'player/investigator',
-                image: 'agnes3.webp',
+                front: 'player/investigator/agnes3.webp',
+                back: 'player/cardback.png',
             },
             {
                 type: 'Event',
-                url: 'player/investigator',
-                image: 'agnes4.webp',
+                front: 'player/investigator/agnes4.webp',
+                back: 'player/cardback.png',
             },
         ],
         activeDeck: [],
@@ -136,8 +140,9 @@ export const InvestigatorData: Investigator[] = [
         class: 'Survivor',
         cards: [
             {
-                front: 'wendy1.webp',
-                back: 'wendy2.webp',
+                front: 'player/investigator/wendy1.webp',
+                back: 'player/investigator/wendy2.webp',
+                alignment: 'H',
             },
         ],
         skills: [4, 3, 1, 4],
@@ -148,13 +153,13 @@ export const InvestigatorData: Investigator[] = [
         cardDeck: [
             {
                 type: 'Asset',
-                url: 'player/investigator',
-                image: 'wendy3.webp',
+                front: 'player/investigator/wendy3.webp',
+                back: 'player/cardback.png',
             },
             {
                 type: 'Treachery',
-                url: 'player/investigator',
-                image: 'wendy4.webp',
+                front: 'player/investigator/wendy4.webp',
+                back: 'player/cardback.png',
             },
         ],
         activeDeck: [],

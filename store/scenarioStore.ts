@@ -4,16 +4,16 @@ import { ScenarioData } from './scenarioData'
 type State = {
     scenarioDeck: Scenario[]
     scenario: Scenario | null
-    dragZone: (DeckCard | FlipCard)[]
+    dragZone: FlipCard[]
 }
 
 type Actions = {
     setScenario: (scenario: Scenario) => void
     findScenario: (scenarioUrl: string) => Scenario
     shuffleEncounterDeck: () => void
-    addCardToDragZone: (card: DeckCard | FlipCard) => void
-    removeCardFromDragZone: (card: DeckCard | FlipCard) => void
-    removeCardFromDeck: (deckCard: DeckCard) => void
+    addCardToDragZone: (card: FlipCard) => void
+    removeCardFromDragZone: (card: FlipCard) => void
+    removeCardFromDeck: (FlipCard: FlipCard) => void
     drawCardFromEncounterDeck: () => void
 }
 
@@ -31,8 +31,8 @@ const useScenarioStore = create<State & Actions>((set, get) => ({
             (scenario) => scenario.url === scenarioUrl
         ) as Scenario
     },
-    addCardToDragZone: (card: DeckCard | FlipCard) => {
-        const dragZone = get().dragZone as (DeckCard | FlipCard)[]
+    addCardToDragZone: (card: FlipCard) => {
+        const dragZone = get().dragZone as FlipCard[]
 
         dragZone.push(card)
 
@@ -40,8 +40,8 @@ const useScenarioStore = create<State & Actions>((set, get) => ({
             dragZone: [...dragZone],
         }))
     },
-    removeCardFromDragZone: (card: DeckCard | FlipCard) => {
-        const dragZone = get().dragZone as (DeckCard | FlipCard)[]
+    removeCardFromDragZone: (card: FlipCard) => {
+        const dragZone = get().dragZone as FlipCard[]
         const cardIndex = dragZone.indexOf(card)
 
         dragZone.splice(Number(cardIndex), 1)
@@ -51,7 +51,7 @@ const useScenarioStore = create<State & Actions>((set, get) => ({
         }))
     },
     shuffleEncounterDeck: () => {
-        const scenarioDeck = get().scenario?.scenarioDeck as DeckCard[]
+        const scenarioDeck = get().scenario?.scenarioDeck as FlipCard[]
 
         for (let i = scenarioDeck.length - 1; i >= 0; i--) {
             const j = Math.floor(Math.random() * (i + 1))
@@ -65,27 +65,27 @@ const useScenarioStore = create<State & Actions>((set, get) => ({
         set((state) => ({
             scenario: {
                 ...(state.scenario as Scenario),
-                scenarioDeck: [...(scenarioDeck as DeckCard[])],
+                scenarioDeck: [...(scenarioDeck as FlipCard[])],
             },
         }))
     },
-    removeCardFromDeck: (deckCard: DeckCard) => {
-        const scenarioDeck = get().scenario?.scenarioDeck as DeckCard[]
-        const cardIndex = scenarioDeck.indexOf(deckCard)
+    removeCardFromDeck: (FlipCard: FlipCard) => {
+        const scenarioDeck = get().scenario?.scenarioDeck as FlipCard[]
+        const cardIndex = scenarioDeck.indexOf(FlipCard)
 
         scenarioDeck.splice(Number(cardIndex), 1)
 
         set((state) => ({
             scenario: {
                 ...(state.scenario as Scenario),
-                scenarioDeck: [...(scenarioDeck as DeckCard[])],
+                scenarioDeck: [...(scenarioDeck as FlipCard[])],
             },
         }))
     },
     drawCardFromEncounterDeck: () => {
-        const cardDeck = get().scenario?.scenarioDeck as DeckCard[]
-        const dragZone = get().dragZone as DeckCard[]
-        const firstCard = cardDeck[0] as DeckCard
+        const cardDeck = get().scenario?.scenarioDeck as FlipCard[]
+        const dragZone = get().dragZone as FlipCard[]
+        const firstCard = cardDeck[0] as FlipCard
 
         dragZone.push(firstCard)
 

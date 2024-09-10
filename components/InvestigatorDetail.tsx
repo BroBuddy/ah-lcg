@@ -7,9 +7,9 @@ import InvestigatorCard from './InvestigatorCard'
 import { FindInvestigator } from '@/store/investigatorData'
 
 const InvestigatorDetail = (investigator: { investigator?: Investigator }) => {
-    const investigatorData: Investigator = FindInvestigator(
+    const investigatorData = FindInvestigator(
         String(investigator.investigator?.url)
-    )
+    ) as Investigator
 
     if (!investigatorData) {
         return (

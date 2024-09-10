@@ -59,7 +59,7 @@ const SetupSteps = () => {
         const randomNumber = Math.floor(Math.random() * weaknessDeck.length)
         const weaknessCard = [weaknessDeck[randomNumber]]
 
-        addCardsIntoDeck(weaknessCard as DeckCard[])
+        addCardsIntoDeck(weaknessCard as FlipCard[])
 
         toast({
             title: `Random weakness was added`,

@@ -17,7 +17,7 @@ const InvestigatorSlug = () => {
                 <InvestigatorDetail investigator={investigatorData} />
 
                 <div className="flex flex-1 w-[732px]">
-                    <CardDeck deck={investigatorData.cardDeck as DeckCard[]} />
+                    <CardDeck deck={investigatorData.cardDeck as FlipCard[]} />
                 </div>
             </div>
         </section>

@@ -8,8 +8,8 @@ import {
     CardTitle,
 } from '@/components/ui/card'
 import { WeaknessDeck } from '@/store/cardData'
-import Image from 'next/image'
 import React from 'react'
+import FlipCard from './FlipCard'
 
 const WeaknessList = () => {
     const weaknessDeck = WeaknessDeck
@@ -24,16 +24,10 @@ const WeaknessList = () => {
             </CardHeader>
 
             <CardContent className="flex flex-row flex-wrap flex-1 gap-4">
-                {weaknessDeck.map((card: DeckCard, index: number) => {
+                {weaknessDeck.map((card: FlipCard, index: number) => {
                     return (
                         <React.Fragment key={index}>
-                            <Image
-                                src={`/player/${card.url}/${card.image}`}
-                                height={264}
-                                width={191}
-                                className="image-card"
-                                alt="Player Card"
-                            />
+                            <FlipCard card={card} />
                         </React.Fragment>
                     )
                 })}
