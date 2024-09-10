@@ -27,9 +27,17 @@ declare type Scenario = {
 
 declare type FlipCard = {
     name?: string
-    type?: 'Asset' | 'Enemy' | 'Event' | 'Skill' | 'Treachery' | 'Location'
+    type?:
+        | 'Asset'
+        | 'Enemy'
+        | 'Event'
+        | 'Skill'
+        | 'Treachery'
+        | 'Agenda'
+        | 'Act'
+        | 'Location'
     front: string
-    back: string | null
+    back: string
     progress?: number
     alignment?: 'H' | 'V'
 }

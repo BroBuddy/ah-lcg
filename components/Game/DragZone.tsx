@@ -85,9 +85,7 @@ const DragZone = () => {
                                         className="absolute w-[192px]"
                                         ref={nodeRef}
                                     >
-                                        {card.type === 'Location' && (
-                                            <FlipCard card={card} />
-                                        )}
+                                        <FlipCard card={card} />
                                     </span>
                                 </Draggable>
                             )

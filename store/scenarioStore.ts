@@ -87,6 +87,10 @@ const useScenarioStore = create<State & Actions>((set, get) => ({
         const dragZone = get().dragZone as FlipCard[]
         const firstCard = cardDeck[0] as FlipCard
 
+        console.log('1', cardDeck)
+        console.log('2', dragZone)
+        console.log('3', firstCard)
+
         dragZone.push(firstCard)
 
         get().removeCardFromDeck(firstCard)
